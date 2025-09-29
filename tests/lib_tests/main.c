@@ -6,7 +6,7 @@
 /*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 15:35:53 by martiukh          #+#    #+#             */
-/*   Updated: 2025/09/27 19:53:33 by martiukh         ###   ########.fr       */
+/*   Updated: 2025/09/29 17:25:03 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ int test_bzero(void (*func_to_test)(void *s, size_t n),
                void (*func_origin)(void *s, size_t n),
                size_t size_input);
 int test_memcpy(void *(*func_to_test)(void *dest, const void *src, size_t n),
-                void *(*origin_func)(void *dest, const void *src, size_t n),
                size_t size_input);
+int test_memmove(void *(*func_to_test)(void *dest, const void *src, size_t n),
+                void *(*origin_func)(void *dest, const void *src, size_t n),
+               size_t size_input, int mv);
+
 int	main(int argc, char **argv)
 {
 	if (argc || argv)
@@ -88,16 +91,14 @@ int	main(int argc, char **argv)
         print_test_result(test_bzero(ft_bzero,bzero,12));}
 	
     printf("MEMCPY:\n");
-        print_test_result(test_memcpy(ft_memcpy,memcpy,0));
-        print_test_result(test_memcpy(ft_memcpy,memcpy,3));
-        print_test_result(test_memcpy(ft_memcpy,memcpy,100));
+        print_test_result(test_memcpy(ft_memcpy,0));
+        print_test_result(test_memcpy(ft_memcpy,3));
+        print_test_result(test_memcpy(ft_memcpy,100));
 	printf("MEMMOVE:\n");
-        print_test_result(test_memcpy(ft_memmove,memmove,0));
-        print_test_result(test_memcpy(ft_memmove,memmove,3));
-        print_test_result(test_memcpy(ft_memmove,memmove,2));
-        print_test_result(test_memcpy(ft_memmove,memmove,1));
-        print_test_result(test_memcpy(ft_memmove,memmove,25));
-        print_test_result(test_memcpy(ft_memmove,memmove,100));
+        print_test_result(test_memmove(ft_memmove,memmove,0,1));
+        print_test_result(test_memmove(ft_memmove,memmove,2,3));
+        print_test_result(test_memmove(ft_memmove,memmove,7,5));
+        print_test_result(test_memmove(ft_memmove,memmove,100,3));
 	printf("strlcpy:\n");
 
 	printf("STRLCAT:\n");

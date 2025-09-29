@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: martiukh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:52:07 by martiukh          #+#    #+#             */
-/*   Updated: 2025/09/23 12:58:06 by martiukh         ###   ########.fr       */
+/*   Updated: 2025/09/29 19:46:59 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <stddef.h>
+
+size_t	ft_strlen(char *str)
 {
-	int	counter;
+	size_t	counter;
 
 	counter = 0;
 	while (*str)
