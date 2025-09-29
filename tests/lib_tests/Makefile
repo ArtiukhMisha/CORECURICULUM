@@ -12,7 +12,7 @@ OBJS = $(SRC:.c=.o)
 LIB = ../../libft/libft.a
 
 all: lib $(OBJS)
-	$(CC) $(OBJS) $(LIB) $(CFLAGS)  -o $(NAME)
+	$(CC) $(OBJS) $(LIB) $(CFLAGS)  -o $(NAME) -lbsd
 
 test:
 	$(CC) -c $(SRC)

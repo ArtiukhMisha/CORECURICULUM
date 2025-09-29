@@ -1,6 +1,8 @@
 #include "stdio.h"
 #include <string.h>
 #include <stdlib.h>
+#include <bsd/string.h>
+
 int test_func_char(int (*func)(char), char input, int output)
 {
 	printf("input: %c ",input);
@@ -15,6 +17,32 @@ int test_func_char(int (*func)(char), char input, int output)
 }
 
 int test_func_str(int (*func)(char *), char *input, int output)
+{
+        printf("input: %s - ",input);
+        int res;
+
+        res = func(input);
+        printf("res : %d",res);
+        if (res == output)
+        {
+                return (1);
+        }
+        return (0);
+}
+int test_func_str_const(int (*func)(const char *), const char *input, int output)
+{
+        printf("input: %s - ",input);
+        int res;
+
+        res = func(input);
+        printf("res : %d",res);
+        if (res == output)
+        {
+                return (1);
+        }
+        return (0);
+}
+int test_func_str_size(size_t (*func)(char *), char *input, int output)
 {
         printf("input: %s - ",input);
         int res;
@@ -99,9 +127,6 @@ int test_memmove(void *(*func_to_test)(void *dest, const void *src, size_t n),
                size_t size_input, int mv)
 {
         printf("input: n - %zu, mv - %d  ",size_input, mv);
-        // void *mem = malloc(100);
-        
-        // void *res = malloc(100);
 
         char src[100] = "1234567890";
         char res[100];
@@ -116,10 +141,10 @@ int test_memmove(void *(*func_to_test)(void *dest, const void *src, size_t n),
 
         func_to_test(res,res + mv,size_input);
         origin_func(output,output + mv,size_input);
-        printf("\ngot : %s\nexpected %s\n",res,output);
+        // printf("\ngot : %s\nexpected %s\n",res,output);
         func_to_test(res1 + mv,res1,size_input);
         origin_func(output1 + mv,output1,size_input);
-        printf("got : %s\nexpected %s\n",res1,output1);
+        // printf("got : %s\nexpected %s\n",res1,output1);
 
         if (memcmp(res,output,100)==0 && memcmp(res1,output1,100)==0)
         {
@@ -127,3 +152,50 @@ int test_memmove(void *(*func_to_test)(void *dest, const void *src, size_t n),
         }
         return (0);
 }   
+int test_strlcpy(size_t (func_to_test)(char *dst, const char *src, size_t size),
+               char *dest1, const char *src1, size_t size_input)
+{
+        printf("input: %zu",size_input);
+        char s1[100];
+        char s2[100];
+        size_t res;
+        size_t output;
+
+        strcpy(s1,dest1);
+        strcpy(s2,dest1);
+
+        res = func_to_test(s1,src1,size_input);
+        output = strlcpy(s2,src1,size_input);
+
+        // printf("\n%zu : %zu ",res,output);
+        // printf("\n res : %s \n out : %s ",s1,s2);
+        if ((strcmp(s1,s2)==0) && (res == output))
+        {
+                return (1);
+        }
+        return (0);
+}
+
+int test_strlcat(size_t (func_to_test)(char *dst, const char *src, size_t size),
+                size_t (func_original)(char *dst, const char *src, size_t size),
+               char *dest1, const char *src1, size_t size_input)
+{
+        printf("input: %zu",size_input);
+        char s1[100];
+        char s2[100];
+        size_t res;
+        size_t output;
+
+        strcpy(s1,dest1);
+        strcpy(s2,dest1);
+
+        res = func_to_test(s1,src1,size_input);
+        output = func_original(s2,src1,size_input);
+        // printf("\n%zu : %zu ",res,output);
+        // printf("\n res : %s \n out : %s ",s1,s2);
+        if ((strcmp(s1,s2)==0) && (res == output))
+        {
+                return (1);
+        }
+        return (0);
+}

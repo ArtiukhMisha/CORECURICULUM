@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include <string.h>
-#include <stddef.h>
+#include "../libft/libft.h"
+#include "../tests/lib_tests/test_lib.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -28,7 +27,10 @@ int main()
     const char *src = "1234567890";
     char res[100];
     char output[100];
-    
+    char s1[100] = "1234567890";
+        char s2[100] = "";
+    int i;
+    i = strlcat(s1,s2);
     memcpy(res,src,10);
     memcpy(output,src,10);
 
