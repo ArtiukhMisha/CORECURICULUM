@@ -10,26 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char *ft_strrchr(const char *s, int c)
 {
-	while (*s1 && n)
-	{
-		if (*s1 != *s2)
-		{
-			return (*s1 - *s2);
-		}
-		s1++;
-		s2++;
-		n--;
-	}
-	if (*s2 && n)
-	{
-		return (0 - *s2);
-	}
-	else
-	{
-		return (0);
-	}
+    char *res;
+    int len;
+    len = 0;
+    res = (char *)(s);
+    while (*(res + len))
+    {
+        len++;
+    }
+    while (len)
+    {
+        if (*(res + len) == c)
+        {
+            return (res + len);
+        }
+        len--;
+    }
+    return(0);
 }

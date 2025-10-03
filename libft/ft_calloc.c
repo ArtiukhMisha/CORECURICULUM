@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martiukh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/03 10:49:17 by martiukh          #+#    #+#             */
-/*   Updated: 2025/07/03 11:15:48 by martiukh         ###   ########.fr       */
+/*   Created: 2025/07/16 18:57:52 by martiukh          #+#    #+#             */
+/*   Updated: 2025/07/16 19:05:08 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void *ft_calloc(size_t nmemb, size_t size)
 {
-	while (*s1 && n)
-	{
-		if (*s1 != *s2)
-		{
-			return (*s1 - *s2);
-		}
-		s1++;
-		s2++;
-		n--;
-	}
-	if (*s2 && n)
-	{
-		return (0 - *s2);
-	}
-	else
-	{
-		return (0);
-	}
+	void *res;
+	unsigned char *cpy;
+
+    res = malloc(nmemb * size);
+    if (!res)
+    {
+        return(0);
+    }
+    cpy = (unsigned char * )res;
+    while (nmemb)
+    {
+        cpy[nmemb] = 0;
+        nmemb--;
+    }
+    return (res);
 }

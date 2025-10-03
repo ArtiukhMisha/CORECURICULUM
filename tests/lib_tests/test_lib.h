@@ -45,4 +45,24 @@ int test_strlcpy(size_t (func_to_test)(char *dst, const char *src, size_t size),
 int test_strlcat(size_t (func_to_test)(char *dst, const char *src, size_t size),
                  size_t (func_original)(char *dst, const char *src, size_t size),
                char *dest1, const char *src1, size_t size_input);
+int test_strdup(char *(func_to_test)(char *src),
+                char *src1);
+int test_strchr(char *(func_to_test)(const char *s, int c),
+                char *(func_original)(const char *s, int c),
+                const char *s, int c);
+int test_memchr(void *(*func_to_test)(const void *s, int c, size_t n),
+                void *(*func_original)(const void *s, int c, size_t n),
+                const void *s, int c, size_t n);
+int test_strncmp(int (func_to_test)(const char *s1, const char *s2, size_t n),
+          int (func_original)(const char *s1, const char *s2, size_t n),
+          char *s1, char *s2, size_t n);
+int test_strnstr(char *(*func_to_test)(const char *big,	const char *little, size_t len),
+          char *(*func_original)(const char *big,	const char *little, size_t len),
+          const char *big,	const char *little, size_t len);
+int test_memcmp(int (func_to_test)(const void *s1, const void *s2, size_t n),
+          int (func_original)(const void *s1, const void *s2, size_t n),
+          const void *s1, const void *s2, size_t n);
+int test_calloc(void *(func_to_test)(size_t nmemb, size_t size),
+          void *(func_original)(size_t nmemb, size_t size),
+          size_t nmemb, size_t size);
 #endif

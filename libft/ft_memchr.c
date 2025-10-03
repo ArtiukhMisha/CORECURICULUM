@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martiukh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/03 10:49:17 by martiukh          #+#    #+#             */
-/*   Updated: 2025/07/03 11:15:48 by martiukh         ###   ########.fr       */
+/*   Created: 2025/09/27 14:42:05 by martiukh          #+#    #+#             */
+/*   Updated: 2025/09/27 18:15:33 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void *ft_memchr(const void *s, int c, size_t n)
 {
-	while (*s1 && n)
+	unsigned char *cpy;
+
+	cpy = (unsigned char *)(s);
+
+	while (n)
 	{
-		if (*s1 != *s2)
-		{
-			return (*s1 - *s2);
-		}
-		s1++;
-		s2++;
+		if(*cpy == c)
+        {
+            return (cpy);
+        }
+		cpy++;
 		n--;
 	}
-	if (*s2 && n)
-	{
-		return (0 - *s2);
-	}
-	else
-	{
-		return (0);
-	}
+	return (0);
 }
