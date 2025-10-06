@@ -29,6 +29,7 @@ int test_func_str(int (*func)(char *), char *input, int output);
 int test_func_str_const(int (*func)(const char *), const char *input, int output);
 int test_func_str_size(size_t (*func)(char *), char *input, int output);
 int test_func_int(int (*func)(int), int input, int output);
+int test_itoa(char *(*func_to_test)(int), int a, char *output);
 int test_memset(void *(*func_to_test)(void *s, int c, size_t n),
                 void *(*func_origin)(void *s, int c, size_t n),
                  int int_input, size_t size_input);
@@ -65,4 +66,13 @@ int test_memcmp(int (func_to_test)(const void *s1, const void *s2, size_t n),
 int test_calloc(void *(func_to_test)(size_t nmemb, size_t size),
           void *(func_original)(size_t nmemb, size_t size),
           size_t nmemb, size_t size);
+int test_substr(char *(*func_to_test)(char const *s, unsigned int start, size_t len),
+                                      char const *s, unsigned int start, size_t len,
+                                      char *output);
+int test_str_join_trim(char *(*func_to_test)(char const *s1, char const *s2),
+                 char const *s1, char const *s2,
+                 char *output);
+int test_strmapi(char *(*func_to_test)(char const *s, char (*f)(unsigned int, char)),
+                 char const *s, char (*f)(unsigned int, char),
+                 char *output);                          
 #endif

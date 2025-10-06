@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	{
 	printf("Start testing\n");
 	}
-    if(1){
+    /*if(1){
 	printf("IS_ALPHA:\n");
                 print_test_result(test_func_char(ft_isalpha,'A',1));
                 print_test_result(test_func_char(ft_isalpha,'a',1));
@@ -181,16 +181,31 @@ int	main(int argc, char **argv)
                 print_test_result(test_strdup(ft_strdup,"21\n\t   /asd/"));
                 print_test_result(test_strdup(ft_strdup,""));
         }
+        */
         printf("strjoin:\n");
-                print_test_result(test_strdup(ft_strdup,"1234567890"));
-                print_test_result(test_strdup(ft_strdup,"hello world!!"));
-                print_test_result(test_strdup(ft_strdup,"21\n\t   /asd/"));
-                print_test_result(test_strdup(ft_strdup,""));
+                print_test_result(test_str_join_trim(ft_strjoin,"123","456","123456"));
+                print_test_result(test_str_join_trim(ft_strjoin,"123","","123"));
+                print_test_result(test_str_join_trim(ft_strjoin,"","456","456"));
+                print_test_result(test_str_join_trim(ft_strjoin,"","",""));
         printf("split:\n");
+                print_test_result(test_itoa(ft_itoa,1234567890,"1234567890"));
         printf("substr:\n");
+                print_test_result(test_substr(ft_substr,"1234567890" , 3,4,"4567"));
+                print_test_result(test_substr(ft_substr,"1234567890", 0,10,"1234567890"));
+                print_test_result(test_substr(ft_substr,"1234567890", 3 ,0,""));
+                print_test_result(test_substr(ft_substr,"1234567890", 0, 3,"123"));
         printf("strtrim:\n");
+                print_test_result(test_str_join_trim(ft_strtrim,"|--||--|123|--|123|--||--|","|--|","123|--|123"));
+                print_test_result(test_str_join_trim(ft_strtrim,"<-><->123<->123<-><->","<->","123<->123"));
+                print_test_result(test_str_join_trim(ft_strtrim,"123","","123"));
+                print_test_result(test_str_join_trim(ft_strtrim,"","123",""));
+                print_test_result(test_str_join_trim(ft_strtrim,"123","123",0));
+                print_test_result(test_str_join_trim(ft_strtrim,"123123123","123",0));
         printf("itoa:\n");
-        printf("strmapi:\n");
+                print_test_result(test_itoa(ft_itoa,1234567890,"1234567890"));
+                print_test_result(test_itoa(ft_itoa,-1234567890,"-1234567890"));
+
+        printf("strmapi:\n");       
         printf("striteri:\n");
         printf("putchar_fd:\n");
         printf("putstr_fd:\n");
@@ -212,3 +227,4 @@ void print_test_result(int boolin)
         }
    	
 }
+

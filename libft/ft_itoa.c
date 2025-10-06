@@ -1,44 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 20:29:13 by martiukh          #+#    #+#             */
-/*   Updated: 2025/07/17 17:37:18 by martiukh         ###   ########.fr       */
+/*   Created: 2025/07/07 12:37:27 by martiukh          #+#    #+#             */
+/*   Updated: 2025/09/29 22:46:41 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char *ft_itoa(int n)
 {
-	unsigned int size;
-	unsigned int counter;
 	char *res;
-
-	counter = 0;
-	size = ft_strlen(s1);
-	size += ft_strlen(s2);
-	res = ft_calloc(1,size);
+    int len;
+    int cpy;
+	
+    cpy = n;
+    len = 0;
+    while(cpy)
+	{
+		len++;
+		cpy = cpy/10;
+	}
+	if (n>0)
+	{
+		len--;
+		cpy = 1;
+	}
+	else
+	{
+		cpy = -1;
+	}
+	res = malloc(len);
 	if (!res)
 	{
 		return (0);
 	}
-	while (*s1)
+	while (n)
 	{
-		res[counter] = *s1;
-		s1++;
-		counter++;
+		res[len] = n%10*cpy + '0';
+		n = n/10;
+		len--;
 	}
-	while (*s2)
+	if (cpy == -1)
 	{
-		res[counter] = *s2;
-		s2++;
-		counter++;
+		res[0] = '-';
 	}
 	return (res);
 }
 
-
+/*int main()
+{
+	int res;
+	char *str;
+	str = "   \n--+--+021s234ab567";
+	res = ft_atoi(str);
+	printf("%d",res);
+	return (0);*
+}*/

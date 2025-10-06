@@ -19,10 +19,9 @@ char*	ft_strnstr(const char *big,	const char *little, size_t len)
     unsigned int counter_little;
     int flag;
     char *mem;
+
     flag = 1;
-
     mem = (char *)(big);
-
     len_little = 0;
     while (*(len_little + little))
         len_little++;

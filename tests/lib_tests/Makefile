@@ -1,7 +1,8 @@
 NAME = tests
 
 SRC = main.c\
-      tester_is.c
+      tester_is.c\
+	  tests_2part.c
 
 CC = cc
 

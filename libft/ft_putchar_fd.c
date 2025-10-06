@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: martiukh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/23 12:52:07 by martiukh          #+#    #+#             */
-/*   Updated: 2025/09/29 19:46:59 by martiukh         ###   ########.fr       */
+/*   Created: 2025/07/03 10:49:17 by martiukh          #+#    #+#             */
+/*   Updated: 2025/07/03 11:15:48 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	ft_strlen(const char *str)
+void ft_putchar_fd(char c, int fd)
 {
-	size_t	counter;
-
-	counter = 0;
-	while (*(str+counter))
-		counter++;
-	return (counter);
+    write(fd,c,1);
 }
