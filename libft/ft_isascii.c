@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: martiukh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:33:45 by martiukh          #+#    #+#             */
-/*   Updated: 2025/09/25 16:27:03 by martiukh         ###   ########.fr       */
+/*   Updated: 2025/10/06 10:29:59 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int symb)
 {
-	if (0 <= symb && symb < 256)
+	if (0 <= symb && symb < 128)
 	{
 		return (1);
 	}

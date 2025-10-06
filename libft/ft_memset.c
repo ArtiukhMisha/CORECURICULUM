@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: martiukh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 14:42:05 by martiukh          #+#    #+#             */
-/*   Updated: 2025/09/27 18:15:33 by martiukh         ###   ########.fr       */
+/*   Updated: 2025/10/06 13:35:01 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
+
 #include <stdio.h>
 
 void	*ft_memset(void *s, int c, size_t n)
@@ -19,9 +19,9 @@ void	*ft_memset(void *s, int c, size_t n)
 	cpy = s;
 	while (n)
 	{
-		*(int *)cpy = c;
-		cpy++;
+		*(unsigned char *)s = c;
+		s++;
 		n--;
 	}
-	return (s);
+	return (cpy);
 }

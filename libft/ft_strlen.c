@@ -6,7 +6,7 @@
 /*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:52:07 by martiukh          #+#    #+#             */
-/*   Updated: 2025/09/29 19:46:59 by martiukh         ###   ########.fr       */
+/*   Updated: 2025/10/06 16:48:20 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *str)
 	size_t	counter;
 
 	counter = 0;
-	while (*(str+counter))
+	while (*(str + counter))
 		counter++;
 	return (counter);
 }

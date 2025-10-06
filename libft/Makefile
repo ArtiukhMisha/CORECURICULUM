@@ -26,8 +26,8 @@ SRC = ft_isalpha.c\
 	  ft_substr.c\
 	  ft_strjoin.c\
 	  ft_strtrim.c\
-	  ft_itoa.c\
-	  ft_split.c
+	  ft_itoa.c
+
 CC = gcc
 
 OBJ = $(SRC:.c=.o)
@@ -37,11 +37,13 @@ NAME = libft.a
 CFLAGS += -Wall -Werror -Wextra
 
  
-  	
+all: fclean $(NAME)
 
-start: fclean
-	$(CC) $(CFLAGS) -c $(SRC) 
+$(NAME): $(OBJ)
+	
 	ar rc $(NAME) $(OBJ) 
+$(OBJ) :
+	$(CC) $(CFLAGS) -c $(SRC) 
 	
 clean:
 	rm -f $(OBJ)
@@ -49,6 +51,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: clean fclean re

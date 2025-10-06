@@ -6,7 +6,7 @@
 /*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 20:00:28 by martiukh          #+#    #+#             */
-/*   Updated: 2025/09/29 22:39:00 by martiukh         ###   ########.fr       */
+/*   Updated: 2025/10/06 10:18:44 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void print_test_result(int boolin);
 int test_func_char(int (*func)(char), char input, int output);
 int test_func_str(int (*func)(char *), char *input, int output);
 int test_func_str_const(int (*func)(const char *), const char *input, int output);
-int test_func_str_size(size_t (*func)(char *), char *input, int output);
+int test_func_str_size(size_t (*func)(const char *), char *input, int output);
 int test_func_int(int (*func)(int), int input, int output);
 int test_itoa(char *(*func_to_test)(int), int a, char *output);
 int test_memset(void *(*func_to_test)(void *s, int c, size_t n),

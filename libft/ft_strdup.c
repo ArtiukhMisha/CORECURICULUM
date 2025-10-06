@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: martiukh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:57:52 by martiukh          #+#    #+#             */
-/*   Updated: 2025/07/16 19:05:08 by martiukh         ###   ########.fr       */
+/*   Updated: 2025/10/06 17:01:10 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ char	*ft_strdup(char *src)
 	{
 		len++;
 	}
-	dest = malloc(len);
+	dest = ft_calloc(1, len + 1);
+	if (!dest)
+	{
+		return (0);
+	}
 	len = 0;
 	while (src[len])
 	{

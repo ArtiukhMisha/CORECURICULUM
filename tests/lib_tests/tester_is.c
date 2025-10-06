@@ -42,7 +42,7 @@ int test_func_str_const(int (*func)(const char *), const char *input, int output
         }
         return (0);
 }
-int test_func_str_size(size_t (*func)(char *), char *input, int output)
+int test_func_str_size(size_t (*func)(const char *), char *input, int output)
 {
         printf("input: %s - ",input);
         int res;
@@ -197,8 +197,8 @@ int test_strlcat(size_t (func_to_test)(char *dst, const char *src, size_t size),
 
         res = func_to_test(s1,src1,size_input);
         output = func_original(s2,src1,size_input);
-        // printf("\n%zu : %zu ",res,output);
-        // printf("\n res : %s \n out : %s ",s1,s2);
+        printf("\n%zu : %zu ",res,output);
+        printf("\n res : %s \n out : %s ",s1,s2);
         if ((strcmp(s1,s2)==0) && (res == output))
         {
                 return (1);
@@ -274,9 +274,9 @@ int test_strncmp(int (func_to_test)(const char *s1, const char *s2, size_t n),
 
         res = func_to_test(s1,s2,size_input);
         output = func_original(s1,s2,size_input);
-        // printf("\n%zu : %zu ",res,output);
+        printf("\n%zu : %zu ",res,output);
         // printf("\n res : %s \n out : %s ",s1,s2);
-        if ((res == output))
+        if (res == output)
         {
                 return (1);
         }
@@ -294,7 +294,7 @@ int test_strnstr(char *(*func_to_test)(const char *big,	const char *little, size
         output = func_original(big,little,len);
         printf("\n%s : %s ",res,output);
         // printf("\n res : %s \n out : %s ",s1,s2);
-        if ((res == output))
+        if (res == output)
         {
                 return (1);
         }

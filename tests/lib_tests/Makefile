@@ -15,9 +15,9 @@ LIB = ../../libft/libft.a
 all: lib $(OBJS)
 	$(CC) $(OBJS) $(LIB) $(CFLAGS)  -o $(NAME) -lbsd
 
-test:
+$(OBJS):
 	$(CC) -c $(SRC)
-lib:
+lib: fclean
 	(cd ../../libft && make)
 	echo "lib created"
 
