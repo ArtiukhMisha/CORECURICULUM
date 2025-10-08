@@ -11,47 +11,58 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char *ft_itoa(int n)
+unsigned int	get_int_len(int n);
+
+char	*ft_itoa(int n)
 {
-	char *res;
-    int len;
-    int cpy;
-	
-    cpy = n;
-    len = 0;
-    while(cpy)
-	{
-		len++;
-		cpy = cpy/10;
-	}
-	if (n>0)
-	{
-		len--;
-		cpy = 1;
-	}
-	else
-	{
-		cpy = -1;
-	}
-	res = malloc(len);
+	char	*res;
+	int		len;
+	int		sign;
+
+	len = get_int_len(n);
+	sign = 1;
+	if (n < 0)
+		sign = -1;
+	res = ft_calloc(1, len + 3);
 	if (!res)
-	{
 		return (0);
-	}
-	while (n)
+	while (1)
 	{
-		res[len] = n%10*cpy + '0';
-		n = n/10;
+		res[len] = n % 10 * sign + '0';
+		n = n / 10;
 		len--;
+		if (!n)
+			break ;
 	}
-	if (cpy == -1)
+	if (sign == -1)
 	{
 		res[0] = '-';
 	}
 	return (res);
 }
 
+unsigned int	get_int_len(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n == 0)
+	{
+		return (0);
+	}
+	if (n < 0)
+	{
+		len++;
+	}
+	while (n)
+	{
+		len++;
+		n = n / 10;
+	}
+	return (len - 1);
+}
 /*int main()
 {
 	int res;

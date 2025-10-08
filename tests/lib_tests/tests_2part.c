@@ -29,7 +29,7 @@ int test_str_join_trim(char *(*func_to_test)(char const *s1, char const *s2),
 
 	res = func_to_test(s1,s2);
     // printf("\n%zu : %zu ",res,output);
-    // printf("\n res : %s \n out : %s \n",res,output);
+    printf("\n res : %s\n",res);
     if (res && output){
         if ((strcmp(res,output) == 0))
         {
@@ -42,25 +42,6 @@ int test_str_join_trim(char *(*func_to_test)(char const *s1, char const *s2),
     }
 	return (0);
 }
-
-
-int test_strmapi(char *(*func_to_test)(char const *s, char (*f)(unsigned int, char)),
-                char const *s, char (*f)(unsigned int, char),
-                char *output)
-{
-	printf("input: %s",s);
-	char *res;
-
-	res = func_to_test(s,f);
-    // printf("\n%zu : %zu ",res,output);
-    // printf("\n res : %s \n out : %s \n",res,output);
-    if ((strcmp(res,output) == 0))
-    {
-        return (1);
-    }
-
-	return (0);
-}
 int test_itoa(char *(*func_to_test)(int), int a, char *output)
 {
 	printf("input: %d",a);
@@ -68,7 +49,7 @@ int test_itoa(char *(*func_to_test)(int), int a, char *output)
 
 	res = func_to_test(a);
     // printf("\n%zu : %zu ",res,output);
-    // printf("\n res : %s \n out : %s \n",res,output);
+    printf("\n res : %s \n out : %s \n",res,output);
     if ((strcmp(res,output) == 0))
     {
         return (1);
@@ -76,27 +57,45 @@ int test_itoa(char *(*func_to_test)(int), int a, char *output)
 
 	return (0);
 }
-// int test_split(char **(*func_to_test)(char const *s, char c),
-//                                       char const *s, char c,
-//                                       char **output)
-// {
-// 	printf("input: %c <> %s",c,s);
-//     int counter = 0;
-// 	char *res;
+int test_strmapi(char *(*func_to_test)(char const *s, char (*f)(unsigned int, char)), 
+                    char const *s, char (*f)(unsigned int, char),
+                    char *output)
+{
+	printf("input: %s",s);
+	char *res;
 
-// 	res = func_to_test(s,c);
-//     // printf("\n%zu : %zu ",res,output);
-//     // printf("\n res : %s \n out : %s \n",res,output);
-//     while(res[counter] && output[counter])
-//     {
-//         if ((ft_strncmp(res[counter],output[counter],ft_strlen(res[counter])) != 0))
-//         {
-//             return (0);
-//         }
-//     }
-//         return (1);
+	res = func_to_test(s,f);
+    // printf("\n%zu : %zu ",res,output);
+    printf("\n res : %s\n",res);
+    if ((strcmp(res,output) == 0))
+    {
+        return (1);
+    }
 
-// }
+	return (0);
+}
+int test_split(char **(*func_to_test)(char const *s, char c),
+                                      char const *s, char c,
+                                      char **output)
+{
+	printf("input: %c <> %s",c,s);
+    int counter = 0;
+	char *res;
+
+	res = func_to_test(s,c);
+    // printf("\n%zu : %zu ",res,output);
+    // printf("\n res : %s \n out : %s \n",res,output);
+    while(res[counter] && output[counter])
+    {
+        if ((ft_strncmp((const char *)res[counter],(const char *)output[counter],ft_strlen((const char *)res[counter])) != 0))
+        {
+            return (0);
+        }
+        counter++;
+    }
+        return (1);
+
+}
 
 
 

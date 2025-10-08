@@ -71,8 +71,11 @@ int test_substr(char *(*func_to_test)(char const *s, unsigned int start, size_t 
                                       char *output);
 int test_str_join_trim(char *(*func_to_test)(char const *s1, char const *s2),
                  char const *s1, char const *s2,
-                 char *output);
-int test_strmapi(char *(*func_to_test)(char const *s, char (*f)(unsigned int, char)),
-                 char const *s, char (*f)(unsigned int, char),
-                 char *output);                          
+                 char *output);     
+int test_strmapi(char *(*func_to_test)(char const *s, char (*f)(unsigned int, char)), 
+                    char const *s, char (*f)(unsigned int, char),
+                    char *output);      
+int test_split(char **(*func_to_test)(char const *s, char c),
+                    char const *s, char c,
+                    char **output)               
 #endif

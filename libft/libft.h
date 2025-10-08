@@ -38,7 +38,13 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_itoa(int n);
 void	ft_putchar_fd(char c, int fd);
+void	ft_striteri(char *s, void (*f)(unsigned int,char*));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 void	ft_bzero(void *s, size_t n);
+int		ft_atoi(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_isalnum(char symb);
@@ -48,7 +54,7 @@ int		ft_isprint(char symb);
 int		ft_isdigit(char symb);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-int		ft_atoi(const char *str);
+
 
 
 #endif

@@ -14,6 +14,8 @@
 #include "test_lib.h"
 #include <ctype.h>
 
+char	ft_tol(unsigned int i,char c);
+
 int	main(int argc, char **argv)
 {
 	if (argc || argv)
@@ -94,7 +96,7 @@ int	main(int argc, char **argv)
     //             print_test_result(test_strlcpy(ft_strlcpy,"123","12",3));
     //             print_test_result(test_strlcpy(ft_strlcpy,"123","123",3));
 
-	printf("STRLCAT:\n");
+	// printf("STRLCAT:\n");
                 // print_test_result(test_strlcat(ft_strlcat, strlcat,"123","",3));
                 // print_test_result(test_strlcat(ft_strlcat, strlcat,"123","",1));
                 // print_test_result(test_strlcat(ft_strlcat, strlcat,"123","",0));
@@ -104,13 +106,13 @@ int	main(int argc, char **argv)
                 // print_test_result(test_strlcat(ft_strlcat, strlcat,"","123",4));
                 // print_test_result(test_strlcat(ft_strlcat, strlcat,"12","123",3));
                 // print_test_result(test_strlcat(ft_strlcat, strlcat,"123","12",3));
-                print_test_result(test_strlcat(ft_strlcat, strlcat,"123","12",1));
-                print_test_result(test_strlcat(ft_strlcat, strlcat,"123","12",0));
-                void *dest;
-                if (!(dest = (char *)malloc(sizeof(*dest) * 15)))
-                		return (0);
-                		memset(dest, 'r', 15);
-                print_test_result(test_strlcat(ft_strlcat, strlcat,dest,"lorem ipsum dolor sit amet",5));
+                // print_test_result(test_strlcat(ft_strlcat, strlcat,"123","12",1));
+                // print_test_result(test_strlcat(ft_strlcat, strlcat,"123","12",0));
+                // void *dest;
+                // if (!(dest = (char *)malloc(sizeof(*dest) * 15)))
+                // 		return (0);
+                // 		memset(dest, 'r', 15);
+                // print_test_result(test_strlcat(ft_strlcat, strlcat,dest,"lorem ipsum dolor sit amet",5));
 
     //     printf("TOUPPER:\n");
     //             print_test_result(test_func_int(ft_toupper,'a','A'));
@@ -215,25 +217,21 @@ int	main(int argc, char **argv)
         //         print_test_result(test_str_join_trim(ft_strjoin,"123","","123"));
         //         print_test_result(test_str_join_trim(ft_strjoin,"","456","456"));
         //         print_test_result(test_str_join_trim(ft_strjoin,"","",""));
-        // printf("split:\n");
-        //         print_test_result(test_itoa(ft_itoa,1234567890,"1234567890"));
+        printf("split:\n");
+                print_test_result(test_split(ft_split,"123,123,123,123",{"123","123","123","123"}));
         // printf("substr:\n");
-        //         print_test_result(test_substr(ft_substr,"1234567890" , 3,4,"4567"));
+        //         print_test_result(test_substr(ft_substr,"1234567890", 3,4,"4567"));
         //         print_test_result(test_substr(ft_substr,"1234567890", 0,10,"1234567890"));
         //         print_test_result(test_substr(ft_substr,"1234567890", 3 ,0,""));
         //         print_test_result(test_substr(ft_substr,"1234567890", 0, 3,"123"));
         // printf("strtrim:\n");
         //         print_test_result(test_str_join_trim(ft_strtrim,"|--||--|123|--|123|--||--|","|--|","123|--|123"));
         //         print_test_result(test_str_join_trim(ft_strtrim,"<-><->123<->123<-><->","<->","123<->123"));
-        //         print_test_result(test_str_join_trim(ft_strtrim,"123","","123"));
-        //         print_test_result(test_str_join_trim(ft_strtrim,"","123",""));
-        //         print_test_result(test_str_join_trim(ft_strtrim,"123","123",0));
-        //         print_test_result(test_str_join_trim(ft_strtrim,"123123123","123",0));
-        // printf("itoa:\n");
-        //         print_test_result(test_itoa(ft_itoa,1234567890,"1234567890"));
-        //         print_test_result(test_itoa(ft_itoa,-1234567890,"-1234567890"));
+        //         print_testult(test_itoa(ft_itoa,-0,"0"));
     }
-        printf("strmapi:\n");       
+        // printf("strmapi:\n");     
+        //         print_test_result(test_strmapi(ft_strmapi,"123aaazzzAAAZZZ",&ft_tol,"123aaazzzaaazzz"));
+
         printf("striteri:\n");
         printf("putchar_fd:\n");
         printf("putstr_fd:\n");
@@ -255,4 +253,21 @@ void print_test_result(int boolin)
         }
    	
 }
+char	ft_tol(unsigned int i,char c)
+{
+	if ('A' <= c && c <= 'Z')
+	{
+		return (c + ('a' - 'A'));
+	}
+	return (c);
+}
 
+_result(test_str_join_trim(ft_strtrim,"123","","123"));
+                print_test_result(test_str_join_trim(ft_strtrim,"","123",""));
+                print_test_result(test_str_join_trim(ft_strtrim,"123","123",0));
+                print_test_result(test_str_join_trim(ft_strtrim,"123123123","123",0));
+        // printf("itoa:\n");
+        //         print_test_result(test_itoa(ft_itoa,1234567890,"1234567890"));
+        //         print_test_result(test_itoa(ft_itoa,-1234567890,"-1234567890"));
+        //         print_test_result(test_itoa(ft_itoa,0,"0"));
+        //         print_test_res

@@ -12,30 +12,39 @@
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	unsigned int	counter;
-	char			*res;
+unsigned int char_count(char const *s, char c);
 
-	counter = ft_strlen((s + start));
-	if (len < counter)
-	{
-		res = ft_calloc(1, len + 1);
-	}
-	else
-	{
-		res = ft_calloc(1, counter + 1);
-	}
-	if (!res)
-	{
-		return (0);
-	}
-	counter = 0;
-	while (len-- && *(s + start))
-	{
-		res[counter] = s[start];
-		start++;
-		counter++;
-	}
-	return (res);
+char **ft_split(char const *s, char c)
+{
+    char **res;
+    char **cpy;
+    char *temp;
+    unsigned int n;
+
+    temp = (char *)(s);
+    n = char_count(s,c);
+    res = ft_calloc(1, n * sizeof(char *));
+    cpy = res;
+    while (n)
+    {
+        printf("\n%s",temp);
+        *cpy = ft_calloc(1,ft_strchr(temp,c)-temp);
+        temp = ft_strchr(temp,c);
+        n--;
+    }
+    return (res);
+}
+
+unsigned int char_count(char const *s, char c)
+{
+    unsigned int counter;
+    counter = 0;
+    while (s)
+    {
+        if (*s == c)
+        {
+            counter++;
+        }
+    }
+    return (counter);
 }
