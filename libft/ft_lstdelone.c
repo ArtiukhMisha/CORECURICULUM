@@ -12,12 +12,8 @@
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-    t_list *cpy;
-    cpy = *lst;
-	while (cpy->next)
-		cpy = cpy->next;
-    printf("%s", (char *)cpy->content);
-    cpy->next = new;
+    del(lst->content);
+    free(lst);
 }

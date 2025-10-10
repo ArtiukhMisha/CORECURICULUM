@@ -249,15 +249,15 @@ int	main(int argc, char **argv)
         // ft_putnbr_fd(-123,fd);
         t_list *lst;
         int counter = 0;
-        lst = ft_lstnew("2");
+        lst = ft_lstnew("3");
+        ft_lstadd_front(&lst,ft_lstnew("2"));
         ft_lstadd_front(&lst,ft_lstnew("1"));
-        ft_lstadd_front(&lst,ft_lstnew("1"));
-        ft_lstadd_back(&lst,ft_lstnew("3"));
-        ft_lstadd_back(&lst,ft_lstnew("3"));
+        ft_lstadd_back(&lst,ft_lstnew("4"));
+        ft_lstadd_back(&lst,ft_lstnew("5"));
         counter = ft_lstsize(lst);
         // printf("%p",lst->next);
         // printf("\n%s\n",(char *)lst->content);
-        printf("%d",counter);
+        // printf("%d",counter);
 
 	return (0);
 }
