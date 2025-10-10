@@ -240,17 +240,24 @@ int	main(int argc, char **argv)
         //         print_test_result(test_strmapi(ft_strmapi,"123aaazzzAAAZZZ",&ft_tol,"123aaazzzaaazzz"));
         // printf("striteri:\n");
         //         print_test_result(test_striteri(ft_striteri,"123aaazzzAAAZZZ",&ft_tolo,"123aaazzzaaazzz"));
-    
-        int fd;
-        fd = open("123", O_WRONLY);
-        printf("putchar_fd:\n");
-        
-        printf("putstr_fd:\n");
-        printf("putendl_fd:\n");
-        printf("putnbr_fd:\n");
-        ft_putnbr_fd(-123,fd);
-
-
+        // int fd;
+        // fd = open("123", O_WRONLY);
+        // printf("putchar_fd:\n");/
+        // printf("putstr_fd:\n");
+        // printf("putendl_fd:\n");
+        // printf("putnbr_fd:\n");
+        // ft_putnbr_fd(-123,fd);
+        t_list *lst;
+        int counter = 0;
+        lst = ft_lstnew("2");
+        ft_lstadd_front(&lst,ft_lstnew("1"));
+        ft_lstadd_front(&lst,ft_lstnew("1"));
+        ft_lstadd_back(&lst,ft_lstnew("3"));
+        ft_lstadd_back(&lst,ft_lstnew("3"));
+        counter = ft_lstsize(lst);
+        // printf("%p",lst->next);
+        // printf("\n%s\n",(char *)lst->content);
+        printf("%d",counter);
 
 	return (0);
 }
@@ -281,6 +288,16 @@ void	ft_tolo(unsigned int i,char *c)
 		*c = (*c + ('a' - 'A'));
 	}
     printf("%c",*c);
+}
+void	lst_out(t_list *list)
+{
+    t_list *cpy;
+    cpy = list;
+    while (cpy->next)
+    {
+        // printf("%d", (int) cpy->content);
+        cpy = cpy->next;
+    }
 }
 
 // _result(test_str_join_trim(ft_strtrim,"123","","123"));

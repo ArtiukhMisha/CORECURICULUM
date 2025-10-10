@@ -35,26 +35,39 @@ SRC = ft_isalpha.c\
 	  ft_putendl_fd.c\
 	  ft_putnbr_fd.c
 	  
-SRC_ADD = ft_lstnew.c
+SRC_BONUS = ft_lstnew.c\
+			ft_lstadd_front.c\
+			ft_lstsize.c\
+			ft_lstlast.c\
+			ft_lstadd_back.c
 CC = gcc
 
 OBJ = $(SRC:.c=.o)
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 NAME = libft.a
 
 CFLAGS += -Wall -Werror -Wextra
 
  
-all: fclean $(NAME)
+all: fclean $(NAME) bonus
 
 $(NAME): $(OBJ)
-	
 	ar rc $(NAME) $(OBJ) 
+
+bonus: $(OBJ_BONUS) $(OBJ)
+	ar rc $(NAME) $(OBJ) $(OBJ_BONUS) 
+
+$(OBJ_BONUS) :
+	$(CC) $(CFLAGS) -c $(SRC_BONUS)	
+
 $(OBJ) :
 	$(CC) $(CFLAGS) -c $(SRC) 
 	
+
+
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_BONUS) 
 
 fclean: clean
 	rm -f $(NAME)
