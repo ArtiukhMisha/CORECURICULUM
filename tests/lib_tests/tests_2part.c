@@ -74,13 +74,29 @@ int test_strmapi(char *(*func_to_test)(char const *s, char (*f)(unsigned int, ch
 
 	return (0);
 }
+int test_striteri(void (*func_to_test)(char *s, void (*f)(unsigned int, char *)), 
+                    char *s, void (*f)(unsigned int, char *),
+                    char *output)
+{
+	printf("input: %s",s);
+
+	func_to_test(s,f);
+    // printf("\n%zu : %zu ",res,output);
+    printf("\n s : %s\n",s);
+    if ((strcmp(s,output) == 0))
+    {
+        return (1);
+    }
+
+	return (0);
+}
 int test_split(char **(*func_to_test)(char const *s, char c),
                                       char const *s, char c,
                                       char **output)
 {
 	printf("input: %c <> %s",c,s);
     int counter = 0;
-	char *res;
+	char **res;
 
 	res = func_to_test(s,c);
     // printf("\n%zu : %zu ",res,output);
@@ -94,7 +110,6 @@ int test_split(char **(*func_to_test)(char const *s, char c),
         counter++;
     }
         return (1);
-
 }
 
 

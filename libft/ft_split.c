@@ -12,39 +12,103 @@
 
 #include "libft.h"
 
-unsigned int char_count(char const *s, char c);
+unsigned int	word_count(char const *s, char c);
+char			*ft_not_strchr(const char *s, int c);
+int				split_words(char **res, int numb, char const *s, char c);
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-    char **res;
-    char **cpy;
-    char *temp;
-    unsigned int n;
+	unsigned int	numb;
+	char			**res;
 
-    temp = (char *)(s);
-    n = char_count(s,c);
-    res = ft_calloc(1, n * sizeof(char *));
-    cpy = res;
-    while (n)
-    {
-        printf("\n%s",temp);
-        *cpy = ft_calloc(1,ft_strchr(temp,c)-temp);
-        temp = ft_strchr(temp,c);
-        n--;
-    }
-    return (res);
+	if (!s)
+		return (NULL);
+	numb = word_count(s, c);
+	if (numb == 0)
+		return ((char **)ft_calloc(1, sizeof(char *)));
+	res = ft_calloc(numb + 1, sizeof (char *));
+	if (!res)
+	{
+		return (0);
+	}
+	if (!split_words(res, numb, s, c))
+		return (0);
+	return (res);
 }
 
-unsigned int char_count(char const *s, char c)
+int	split_words(char **res, int numb, char const *s, char c)
 {
-    unsigned int counter;
-    counter = 0;
-    while (s)
-    {
-        if (*s == c)
-        {
-            counter++;
-        }
-    }
-    return (counter);
+	char			**cpy;
+	char			*temp;
+	int				len;
+
+	temp = (char *)s;
+	cpy = res;
+	while (numb--)
+	{
+		temp = ft_not_strchr(temp, c);
+		if (ft_strchr(temp, c))
+			len = ft_strchr(temp, c) - temp;
+		else
+			len = ft_strlen(temp);
+		*cpy = ft_calloc(1, (len + 2));
+		if (!*cpy)
+		{
+			return (0);
+		}
+		ft_strlcpy(*cpy, temp, len + 1);
+		temp = temp + len + 1;
+		cpy++;
+	}
+	return (1);
+}
+
+char	*ft_not_strchr(const char *s, int c)
+{
+	unsigned char	c1;
+	unsigned int	len;
+	char			*res;
+
+	c1 = (char)(c);
+	res = (char *)(s);
+	len = ft_strlen(res);
+	while (*(res + len))
+		len++;
+	while (len)
+	{
+		if (*res != c1)
+		{
+			return (res);
+		}
+		res++;
+		len--;
+	}
+	return (0);
+}
+
+unsigned int	word_count(char const *s, char c)
+{
+	unsigned int	counter;
+	int				flag;
+
+	flag = 0;
+	counter = 0;
+	while (*s)
+	{
+		if (*s == c)
+		{
+			if (flag)
+			{
+				flag = 0;
+				counter++;
+			}
+		}
+		else
+		{
+			flag = 1;
+		}
+		s++;
+	}
+	counter += flag;
+	return (counter);
 }

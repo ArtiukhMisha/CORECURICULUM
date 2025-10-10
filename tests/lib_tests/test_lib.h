@@ -19,7 +19,8 @@
 #include <bsd/string.h>
 #include <stddef.h>
 #include <stdlib.h>
-
+#include <sys/stat.h>
+#include <fcntl.h>
 #include "stdio.h"
 #include "../../libft/libft.h"
 
@@ -74,8 +75,11 @@ int test_str_join_trim(char *(*func_to_test)(char const *s1, char const *s2),
                  char *output);     
 int test_strmapi(char *(*func_to_test)(char const *s, char (*f)(unsigned int, char)), 
                     char const *s, char (*f)(unsigned int, char),
-                    char *output);      
+                    char *output);       
 int test_split(char **(*func_to_test)(char const *s, char c),
-                    char const *s, char c,
-                    char **output)               
+                                      char const *s, char c,
+                                      char **output);    
+int test_striteri(void (*func_to_test)(char *s, void (*f)(unsigned int, char *)), 
+                    char *s, void (*f)(unsigned int, char *),
+                    char *output);
 #endif

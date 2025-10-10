@@ -15,6 +15,7 @@
 #include <ctype.h>
 
 char	ft_tol(unsigned int i,char c);
+void	ft_tolo(unsigned int i,char *c);
 
 int	main(int argc, char **argv)
 {
@@ -217,8 +218,14 @@ int	main(int argc, char **argv)
         //         print_test_result(test_str_join_trim(ft_strjoin,"123","","123"));
         //         print_test_result(test_str_join_trim(ft_strjoin,"","456","456"));
         //         print_test_result(test_str_join_trim(ft_strjoin,"","",""));
-        printf("split:\n");
-                print_test_result(test_split(ft_split,"123,123,123,123",{"123","123","123","123"}));
+        // printf("split:\n");
+        // char *r1[4]= {"123","123","123","123"};
+        // char *r2[4]= {"123","123","123","123"};
+        // char *r3[4]= {"123","123","123","123"};
+        //         print_test_result(test_split(ft_split,"123 123 123 123",' ',r1));
+        //         print_test_result(test_split(ft_split,"123 123 123 123     ",' ',r2));
+        //         print_test_result(test_split(ft_split,"    123    123 123    123 ",' ',r3));
+        //         print_test_result(test_split(ft_split,"",' ',0));
         // printf("substr:\n");
         //         print_test_result(test_substr(ft_substr,"1234567890", 3,4,"4567"));
         //         print_test_result(test_substr(ft_substr,"1234567890", 0,10,"1234567890"));
@@ -231,12 +238,17 @@ int	main(int argc, char **argv)
     }
         // printf("strmapi:\n");     
         //         print_test_result(test_strmapi(ft_strmapi,"123aaazzzAAAZZZ",&ft_tol,"123aaazzzaaazzz"));
-
-        printf("striteri:\n");
+        // printf("striteri:\n");
+        //         print_test_result(test_striteri(ft_striteri,"123aaazzzAAAZZZ",&ft_tolo,"123aaazzzaaazzz"));
+    
+        int fd;
+        fd = open("123", O_WRONLY);
         printf("putchar_fd:\n");
+        
         printf("putstr_fd:\n");
         printf("putendl_fd:\n");
         printf("putnbr_fd:\n");
+        ft_putnbr_fd(-123,fd);
 
 
 
@@ -261,11 +273,20 @@ char	ft_tol(unsigned int i,char c)
 	}
 	return (c);
 }
+void	ft_tolo(unsigned int i,char *c)
+{
+    printf("\n%c - ",*c);
+	if ('A' <= *c && *c <= 'Z')
+	{
+		*c = (*c + ('a' - 'A'));
+	}
+    printf("%c",*c);
+}
 
-_result(test_str_join_trim(ft_strtrim,"123","","123"));
-                print_test_result(test_str_join_trim(ft_strtrim,"","123",""));
-                print_test_result(test_str_join_trim(ft_strtrim,"123","123",0));
-                print_test_result(test_str_join_trim(ft_strtrim,"123123123","123",0));
+// _result(test_str_join_trim(ft_strtrim,"123","","123"));
+//                 print_test_result(test_str_join_trim(ft_strtrim,"","123",""));
+//                 print_test_result(test_str_join_trim(ft_strtrim,"123","123",0));
+//                 print_test_result(test_str_join_trim(ft_strtrim,"123123123","123",0));
         // printf("itoa:\n");
         //         print_test_result(test_itoa(ft_itoa,1234567890,"1234567890"));
         //         print_test_result(test_itoa(ft_itoa,-1234567890,"-1234567890"));

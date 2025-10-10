@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: martiukh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/03 10:49:17 by martiukh          #+#    #+#             */
-/*   Updated: 2025/07/03 11:15:48 by martiukh         ###   ########.fr       */
+/*   Created: 2025/09/29 22:04:14 by martiukh          #+#    #+#             */
+/*   Updated: 2025/09/29 22:21:49 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	write(fd, &c, 1);
+	unsigned int	counter;
+
+	counter = 0;
+	while (s[counter])
+	{
+		f(counter, s + counter);
+		counter++;
+	}
 }

@@ -11,8 +11,33 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	write(fd, &c, 1);
+	char	s[30];
+	int		counter;
+	int		sign;
+
+	sign = 1;
+	counter = 0;
+	if (n == 0)
+	{
+		write(fd, "0", 1);
+		return ;
+	}
+	if (n < 0)
+		sign = -1;
+	while (n)
+	{
+		s[counter++] = n % 10 * sign + '0';
+		n = n / 10;
+	}
+	if (sign < 0)
+	{
+		s[counter] = '-';
+		counter++;
+	}
+	while (counter--)
+		write(fd, &s[counter], 1);
 }
