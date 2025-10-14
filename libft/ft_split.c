@@ -14,6 +14,7 @@
 
 unsigned int	word_count(char const *s, char c);
 char			*ft_not_strchr(const char *s, int c);
+void			clear(char **arr);
 int				split_words(char **res, int numb, char const *s, char c);
 
 char	**ft_split(char const *s, char c)
@@ -25,7 +26,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	numb = word_count(s, c);
 	if (numb == 0)
-		return ((char **)ft_calloc(1, sizeof(char *)));
+		return (ft_calloc(1, sizeof(char *)));
 	res = ft_calloc(numb + 1, sizeof (char *));
 	if (!res)
 	{
@@ -51,9 +52,10 @@ int	split_words(char **res, int numb, char const *s, char c)
 			len = ft_strchr(temp, c) - temp;
 		else
 			len = ft_strlen(temp);
-		*cpy = ft_calloc(1, (len + 2));
+		*cpy = ft_calloc(1, (len + 1));
 		if (!*cpy)
 		{
+			clear(res);
 			return (0);
 		}
 		ft_strlcpy(*cpy, temp, len + 1);
@@ -61,6 +63,19 @@ int	split_words(char **res, int numb, char const *s, char c)
 		cpy++;
 	}
 	return (1);
+}
+
+void	clear(char **arr)
+{
+	int	counter;
+
+	counter = 0;
+	while (arr[counter])
+	{
+		free(arr[counter]);
+		counter++;
+	}
+	free(arr);
 }
 
 char	*ft_not_strchr(const char *s, int c)

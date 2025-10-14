@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 #include <stdio.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -21,12 +22,10 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 	cpy_s1 = (unsigned char *)(s1);
 	cpy_s2 = (unsigned char *)(s2);
-	len = 0;
-	while (*(cpy_s1 + len) && len < n)
-	{
-		len++;
-	}
-	while (len--)
+	len = ft_strlen(s1);
+	if (!n)
+		return (0);
+	while (n-- && len--)
 	{
 		if (*cpy_s1 != *cpy_s2)
 		{

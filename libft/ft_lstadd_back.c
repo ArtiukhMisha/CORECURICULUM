@@ -14,10 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-    t_list *cpy;
-    cpy = *lst;
-	while (cpy->next)
-		cpy = cpy->next;
-    printf("%s", (char *)cpy->content);
-    cpy->next = new;
+	t_list	**temp;
+
+	if (!lst)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	temp = lst;
+	ft_lstlast(*temp)->next = new;
 }

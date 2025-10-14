@@ -16,6 +16,7 @@
 
 char	ft_tol(unsigned int i,char c);
 void	ft_tolo(unsigned int i,char *c);
+void	lst_out(t_list *list);
 
 int	main(int argc, char **argv)
 {
@@ -31,13 +32,13 @@ int	main(int argc, char **argv)
     //             print_test_result(test_func_char(ft_isalpha,'z',1));
     //             print_test_result(test_func_char(ft_isalpha,'A'-1,0));
     //             print_test_result(test_func_char(ft_isalpha,'z'+1,0));
-	
+
    	//  printf("ISDIGIT:\n");
     //             print_test_result(test_func_char(ft_isdigit,'0',1));
     //             print_test_result(test_func_char(ft_isdigit,'9',1));
     //             print_test_result(test_func_char(ft_isdigit,'0'-1,0));
     //             print_test_result(test_func_char(ft_isdigit,'9'+1,0));
-	
+
     //     printf("IS_ALNUM:\n");
     //             print_test_result(test_func_char(ft_isalnum,'A',1));
     //             print_test_result(test_func_char(ft_isalnum,'a',1));
@@ -57,39 +58,39 @@ int	main(int argc, char **argv)
     //             print_test_result(test_func_int(ft_isascii,256,0));
     //             print_test_result(test_func_int(ft_isascii,127,1));
     //             print_test_result(test_func_int(ft_isascii,128,0));
-	
+
 	// printf("IS_PRINT:\n");
     //             print_test_result(test_func_char(ft_isprint,32,1));
     //             print_test_result(test_func_char(ft_isprint,126,1));
     //             print_test_result(test_func_char(ft_isprint,31,0));
-    //             print_test_result(test_func_char(ft_isprint,127,0));	
-	
+    //             print_test_result(test_func_char(ft_isprint,127,0));
+
 	// printf("strlen:\n");
     //             print_test_result(test_func_str_size(ft_strlen,"",0));
     //             print_test_result(test_func_str_size(ft_strlen,"123",3));
     //             print_test_result(test_func_str_size(ft_strlen,"7j7yjv7yj 57y7y 7y 157y     j j5y7 jy57jj1  jy7 jy7 j 9 \n",57));
-	
+
     //     printf("memset:\n");
     //             print_test_result(test_memset(ft_memset,memset,'1',0));
     //             print_test_result(test_memset(ft_memset,memset,'1',5));
     //             print_test_result(test_memset(ft_memset,memset,'1',12));
-        
+
     //     printf("bzero:\n");
     //             print_test_result(test_bzero(ft_bzero,bzero,0));
     //             print_test_result(test_bzero(ft_bzero,bzero,5));
     //             print_test_result(test_bzero(ft_bzero,bzero,12));
-        
+
     //     printf("MEMCPY:\n");
     //             print_test_result(test_memcpy(ft_memcpy,0));
     //             print_test_result(test_memcpy(ft_memcpy,3));
     //             print_test_result(test_memcpy(ft_memcpy,100));
-	
+
     //     printf("MEMMOVE:\n");
     //             print_test_result(test_memmove(ft_memmove,memmove,0,1));
     //             print_test_result(test_memmove(ft_memmove,memmove,2,3));
     //             print_test_result(test_memmove(ft_memmove,memmove,7,5));
     //             print_test_result(test_memmove(ft_memmove,memmove,100,3));
-	
+
     //     printf("strlcpy:\n");
     //             print_test_result(test_strlcpy(ft_strlcpy,"123","1",0));
     //             print_test_result(test_strlcpy(ft_strlcpy,"1234567890","123",3));
@@ -118,16 +119,16 @@ int	main(int argc, char **argv)
     //     printf("TOUPPER:\n");
     //             print_test_result(test_func_int(ft_toupper,'a','A'));
     //             print_test_result(test_func_int(ft_toupper,'z','Z'));
-    //             print_test_result(test_func_int(ft_toupper,'-','-'));    
-    //             print_test_result(test_func_int(ft_toupper,'a'-1,'a'-1));    
-    //             print_test_result(test_func_int(ft_toupper,'z'+1,'z'+1));  
+    //             print_test_result(test_func_int(ft_toupper,'-','-'));
+    //             print_test_result(test_func_int(ft_toupper,'a'-1,'a'-1));
+    //             print_test_result(test_func_int(ft_toupper,'z'+1,'z'+1));
 
     //     printf("TOLOWER:\n");
     //             print_test_result(test_func_int(ft_tolower,'A','a'));
     //             print_test_result(test_func_int(ft_tolower,'Z','z'));
-    //             print_test_result(test_func_int(ft_tolower,'-','-'));    
-    //             print_test_result(test_func_int(ft_tolower,'A'-1,'A'-1));    
-    //             print_test_result(test_func_int(ft_tolower,'Z'+1,'Z'+1)); 
+    //             print_test_result(test_func_int(ft_tolower,'-','-'));
+    //             print_test_result(test_func_int(ft_tolower,'A'-1,'A'-1));
+    //             print_test_result(test_func_int(ft_tolower,'Z'+1,'Z'+1));
 
     //     printf("STRCHR:\n");
     //             print_test_result(test_strchr(ft_strchr,strchr,"1234567890",'0'));
@@ -212,12 +213,12 @@ int	main(int argc, char **argv)
         //         print_test_result(test_strdup(ft_strdup,"21\n\t   /asd/"));
         //         print_test_result(test_strdup(ft_strdup,""));
         // }
-        
-        // printf("strjoin:\n");
-        //         print_test_result(test_str_join_trim(ft_strjoin,"123","456","123456"));
-        //         print_test_result(test_str_join_trim(ft_strjoin,"123","","123"));
-        //         print_test_result(test_str_join_trim(ft_strjoin,"","456","456"));
-        //         print_test_result(test_str_join_trim(ft_strjoin,"","",""));
+
+        printf("strjoin:\n");
+                print_test_result(test_str_join_trim(ft_strjoin,0,0,0));
+                print_test_result(test_str_join_trim(ft_strjoin,"123",0,"123"));
+                print_test_result(test_str_join_trim(ft_strjoin,0,"456","456"));
+                print_test_result(test_str_join_trim(ft_strjoin,"Hello"," everyone !","Hello everyone !"));
         // printf("split:\n");
         // char *r1[4]= {"123","123","123","123"};
         // char *r2[4]= {"123","123","123","123"};
@@ -232,11 +233,15 @@ int	main(int argc, char **argv)
         //         print_test_result(test_substr(ft_substr,"1234567890", 3 ,0,""));
         //         print_test_result(test_substr(ft_substr,"1234567890", 0, 3,"123"));
         // printf("strtrim:\n");
-        //         print_test_result(test_str_join_trim(ft_strtrim,"|--||--|123|--|123|--||--|","|--|","123|--|123"));
-        //         print_test_result(test_str_join_trim(ft_strtrim,"<-><->123<->123<-><->","<->","123<->123"));
-        //         print_testult(test_itoa(ft_itoa,-0,"0"));
-    }
-        // printf("strmapi:\n");     
+        //         print_test_result(test_str_join_trim(ft_strtrim," yyy Hello everyone! yy"," yHelovrn!",""));
+        //         print_test_result(test_str_join_trim(ft_strtrim,"<-><->123<->123<-><->",0,""));
+		// printf("stritoa:\n");
+        //         print_test_result(test_itoa(ft_itoa,123,"123"));
+        //         print_test_result(test_itoa(ft_itoa,23,"23"));
+        //         print_test_result(test_itoa(ft_itoa,-23,"-23"));
+        //         print_test_result(test_itoa(ft_itoa,"<-><->123<->123<-><->","<->","123<->123"));
+	}
+        // printf("strmapi:\n");
         //         print_test_result(test_strmapi(ft_strmapi,"123aaazzzAAAZZZ",&ft_tol,"123aaazzzaaazzz"));
         // printf("striteri:\n");
         //         print_test_result(test_striteri(ft_striteri,"123aaazzzAAAZZZ",&ft_tolo,"123aaazzzaaazzz"));
@@ -250,14 +255,14 @@ int	main(int argc, char **argv)
         t_list *lst;
         int counter = 0;
         lst = ft_lstnew("3");
-        ft_lstadd_front(&lst,ft_lstnew("2"));
-        ft_lstadd_front(&lst,ft_lstnew("1"));
         ft_lstadd_back(&lst,ft_lstnew("4"));
         ft_lstadd_back(&lst,ft_lstnew("5"));
+        ft_lstadd_back(&lst,ft_lstnew("6"));
         counter = ft_lstsize(lst);
         // printf("%p",lst->next);
         // printf("\n%s\n",(char *)lst->content);
         // printf("%d",counter);
+		lst_out(lst);
 
 	return (0);
 }
@@ -270,7 +275,7 @@ void print_test_result(int boolin)
         }else{
                 printf("💩FAIL\n");
         }
-   	
+
 }
 char	ft_tol(unsigned int i,char c)
 {
@@ -293,9 +298,11 @@ void	lst_out(t_list *list)
 {
     t_list *cpy;
     cpy = list;
-    while (cpy->next)
+    while (1)
     {
-        // printf("%d", (int) cpy->content);
+        printf("\n%s", (char *) cpy->content);
+		if(!(cpy->next))
+		{break;}
         cpy = cpy->next;
     }
 }
