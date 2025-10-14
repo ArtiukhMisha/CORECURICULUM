@@ -14,29 +14,16 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	size;
-	unsigned int	counter;
 	char			*res;
 
-	counter = 0;
-	size = ft_strlen(s1);
-	size += ft_strlen(s2);
-	res = ft_calloc(1, size + 1);
-	if (!res)
-	{
+	if (!s1 && !s2)
 		return (0);
-	}
-	while (*s1)
-	{
-		res[counter] = *s1;
-		s1++;
-		counter++;
-	}
-	while (*s2)
-	{
-		res[counter] = *s2;
-		s2++;
-		counter++;
-	}
+	res = ft_calloc(1, ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!res)
+		return (0);
+	if (s1)
+		ft_strlcpy(res, s1, ft_strlen(s1) + 10);
+	if (s2)
+		ft_strlcat(res, s2, ft_strlen(s2) + 10);
 	return (res);
 }

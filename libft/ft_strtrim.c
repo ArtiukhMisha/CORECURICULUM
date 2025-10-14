@@ -21,22 +21,23 @@ char	*ft_strtrim(char const *s1, char const *set)
 	const char	*start;
 	const char	*end;
 	char		*res;
-	int			counter;
 
-	counter = 0;
+	if (!s1)
+		return (0);
 	start = find_start(s1, set);
 	end = find_end(s1, set);
+	if (!set)
+		return (ft_strdup((char *)s1));
+	if (start > end)
+		return (ft_strdup(""));
+	if (start > end)
+		return ("");
 	res = ft_calloc(1, end - start + 1);
 	if (!res)
 	{
 		return (0);
 	}
-	while (start < end)
-	{
-		res[counter] = *(start);
-		counter++;
-		start++;
-	}
+	ft_strlcpy(res, start, end - start + 1);
 	return (res);
 }
 
@@ -44,6 +45,8 @@ const char	*find_start(char const *s1, char const *set)
 {
 	char	*ptr_l;
 
+	if (!set)
+		return (0);
 	ptr_l = (char *)(s1);
 	while (1)
 	{
@@ -63,6 +66,8 @@ const char	*find_end(char const *s1, char const *set)
 {
 	char	*ptr_r;
 
+	if (!set)
+		return (0);
 	ptr_r = (char *)(s1 + ft_strlen(s1) - 1);
 	if (!set)
 	{

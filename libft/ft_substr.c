@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	counter;
 	char			*res;
 
+	if (!s)
+		return (0);
 	counter = ft_strlen((s + start));
 	if (len < counter)
 	{
@@ -27,9 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		res = ft_calloc(1, counter + 1);
 	}
 	if (!res)
-	{
 		return (0);
-	}
 	counter = 0;
 	while (len-- && *(s + start))
 	{
