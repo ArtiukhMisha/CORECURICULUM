@@ -6,7 +6,7 @@
 /*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 20:29:13 by martiukh          #+#    #+#             */
-/*   Updated: 2025/07/17 17:37:18 by martiukh         ###   ########.fr       */
+/*   Updated: 2025/10/16 13:14:05 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (s1)
 		ft_strlcpy(res, s1, ft_strlen(s1) + 10);
 	if (s2)
-		ft_strlcat(res, s2, ft_strlen(s2) + 10);
+		ft_strlcat(res, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
 	return (res);
 }
