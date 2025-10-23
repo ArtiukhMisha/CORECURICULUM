@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static unsigned int	word_count(char const *s, char c);
-static char			*ft_not_strchr(const char *s, int c);
-static void			clear(char **arr);
-static int				split_words(char **res, int numb, char const *s, char c);
+unsigned int	word_count(char const *s, char c);
+char			*ft_not_strchr(const char *s, int c);
+void			clear(char **arr);
+int				split_words(char **res, int numb, char const *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
@@ -65,7 +65,7 @@ static int	split_words(char **res, int numb, char const *s, char c)
 	return (1);
 }
 
-static void	clear(char **arr)
+void	clear(char **arr)
 {
 	int	counter;
 
@@ -78,7 +78,7 @@ static void	clear(char **arr)
 	free(arr);
 }
 
-static char	*ft_not_strchr(const char *s, int c)
+char	*ft_not_strchr(const char *s, int c)
 {
 	unsigned char	c1;
 	unsigned int	len;

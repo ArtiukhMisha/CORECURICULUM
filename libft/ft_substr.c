@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 22:04:14 by martiukh          #+#    #+#             */
-/*   Updated: 2025/09/29 22:21:49 by martiukh         ###   ########.fr       */
+/*   Updated: 2025/10/16 13:17:06 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (0);
+	if (start > ft_strlen(s))
+		return ft_calloc(1,1);
 	counter = ft_strlen((s + start));
 	if (len < counter)
-	{
 		res = ft_calloc(1, len + 1);
-	}
 	else
-	{
 		res = ft_calloc(1, counter + 1);
-	}
 	if (!res)
 		return (0);
 	counter = 0;

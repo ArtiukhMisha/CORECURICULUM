@@ -6,7 +6,7 @@
 /*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 15:35:53 by martiukh          #+#    #+#             */
-/*   Updated: 2025/10/06 17:33:37 by martiukh         ###   ########.fr       */
+/*   Updated: 2025/10/16 13:06:29 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,11 +214,11 @@ int	main(int argc, char **argv)
         //         print_test_result(test_strdup(ft_strdup,""));
         // }
 
-        printf("strjoin:\n");
-                print_test_result(test_str_join_trim(ft_strjoin,0,0,0));
-                print_test_result(test_str_join_trim(ft_strjoin,"123",0,"123"));
-                print_test_result(test_str_join_trim(ft_strjoin,0,"456","456"));
-                print_test_result(test_str_join_trim(ft_strjoin,"Hello"," everyone !","Hello everyone !"));
+        // printf("strjoin:\n");
+        //         print_test_result(test_str_join_trim(ft_strjoin,0,0,0));
+        //         print_test_result(test_str_join_trim(ft_strjoin,"123",0,"123"));
+        //         print_test_result(test_str_join_trim(ft_strjoin,0,"456","456"));
+        //         print_test_result(test_str_join_trim(ft_strjoin,"tripouille","42","tripouille42"));
         // printf("split:\n");
         // char *r1[4]= {"123","123","123","123"};
         // char *r2[4]= {"123","123","123","123"};
@@ -227,11 +227,11 @@ int	main(int argc, char **argv)
         //         print_test_result(test_split(ft_split,"123 123 123 123     ",' ',r2));
         //         print_test_result(test_split(ft_split,"    123    123 123    123 ",' ',r3));
         //         print_test_result(test_split(ft_split,"",' ',0));
-        // printf("substr:\n");
-        //         print_test_result(test_substr(ft_substr,"1234567890", 3,4,"4567"));
-        //         print_test_result(test_substr(ft_substr,"1234567890", 0,10,"1234567890"));
-        //         print_test_result(test_substr(ft_substr,"1234567890", 3 ,0,""));
-        //         print_test_result(test_substr(ft_substr,"1234567890", 0, 3,"123"));
+        printf("substr:\n");
+                print_test_result(test_substr(ft_substr,"tripouille", 100, 420000,""));
+                print_test_result(test_substr(ft_substr,"1234567890", 0,10,"1234567890"));
+                print_test_result(test_substr(ft_substr,"1234567890", 3 ,0,""));
+                print_test_result(test_substr(ft_substr,"1234567890", 0, 3,"123"));
         // printf("strtrim:\n");
         //         print_test_result(test_str_join_trim(ft_strtrim," yyy Hello everyone! yy"," yHelovrn!",""));
         //         print_test_result(test_str_join_trim(ft_strtrim,"<-><->123<->123<-><->",0,""));

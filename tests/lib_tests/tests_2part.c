@@ -12,7 +12,7 @@ int test_substr(char *(*func_to_test)(char const *s, unsigned int start, size_t 
 	char *res;
 
 	res = func_to_test(s, start, len);
-    // printf("\n%zu : %zu ",res,output);
+    printf("\nres : %s : %s ",res,output);
     // printf("\n res : %s \n out : %s ",res,output);
 	if (strcmp(res,output) == 0)
 	{
@@ -57,7 +57,7 @@ int test_itoa(char *(*func_to_test)(int), int a, char *output)
 
 	return (0);
 }
-int test_strmapi(char *(*func_to_test)(char const *s, char (*f)(unsigned int, char)), 
+int test_strmapi(char *(*func_to_test)(char const *s, char (*f)(unsigned int, char)),
                     char const *s, char (*f)(unsigned int, char),
                     char *output)
 {
@@ -74,7 +74,7 @@ int test_strmapi(char *(*func_to_test)(char const *s, char (*f)(unsigned int, ch
 
 	return (0);
 }
-int test_striteri(void (*func_to_test)(char *s, void (*f)(unsigned int, char *)), 
+int test_striteri(void (*func_to_test)(char *s, void (*f)(unsigned int, char *)),
                     char *s, void (*f)(unsigned int, char *),
                     char *output)
 {
