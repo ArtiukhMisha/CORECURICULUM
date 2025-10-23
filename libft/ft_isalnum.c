@@ -9,13 +9,13 @@
 /*   Updated: 2025/09/25 16:57:22 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_isalnum(char symb)
+int	ft_isalnum(int c)
 {
-	if (('a' <= symb && symb <= 'z') || ('A' <= symb && symb <= 'Z'))
+	if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'))
 	{
 		return (1);
 	}
-	else if ('0' <= symb && symb <= '9')
+	else if ('0' <= c && c <= '9')
 	{
 		return (1);
 	}

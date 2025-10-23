@@ -9,9 +9,9 @@
 /*   Updated: 2025/09/25 16:56:12 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_isalpha(char symb)
+int	ft_isalpha(int c)
 {
-	if (('a' <= symb && symb <= 'z') || ('A' <= symb && symb <= 'Z'))
+	if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'))
 	{
 		return (1);
 	}

@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-unsigned int	char_in(char c, char const *s);
-const char		*find_start(char const *s1, char const *set);
-const char		*find_end(char const *s1, char const *set);
+static unsigned int	char_in(char c, char const *s);
+static const char		*find_start(char const *s1, char const *set);
+static const char		*find_end(char const *s1, char const *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (res);
 }
 
-const char	*find_start(char const *s1, char const *set)
+static const char	*find_start(char const *s1, char const *set)
 {
 	char	*ptr_l;
 
@@ -62,7 +62,7 @@ const char	*find_start(char const *s1, char const *set)
 	return (ptr_l);
 }
 
-const char	*find_end(char const *s1, char const *set)
+static const char	*find_end(char const *s1, char const *set)
 {
 	char	*ptr_r;
 
@@ -87,7 +87,7 @@ const char	*find_end(char const *s1, char const *set)
 	return (ptr_r + 1);
 }
 
-unsigned int	char_in(char c, char const *s)
+static unsigned int	char_in(char c, char const *s)
 {
 	char	*cpy;
 

@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-unsigned int	get_int_len(int n);
+static unsigned int	get_int_len(int n);
 
 char	*ft_itoa(int n)
 {
@@ -43,7 +43,7 @@ char	*ft_itoa(int n)
 	return (res);
 }
 
-unsigned int	get_int_len(int n)
+static unsigned int	get_int_len(int n)
 {
 	int	len;
 

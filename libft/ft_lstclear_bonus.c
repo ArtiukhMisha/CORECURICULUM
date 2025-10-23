@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: martiukh <martiukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 22:04:14 by martiukh          #+#    #+#             */
-/*   Updated: 2025/09/29 22:21:49 by martiukh         ###   ########.fr       */
+/*   Updated: 2025/09/29 22:21:29 by martiukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	unsigned int	counter;
-	char			*res;
+	t_list	*temp;
 
-	if (!s)
-		return (0);
-	counter = ft_strlen((s + start));
-	if (len < counter)
+	if (!lst || !del)
 	{
-		res = ft_calloc(1, len + 1);
+		return ;
 	}
-	else
+	while (*lst)
 	{
-		res = ft_calloc(1, counter + 1);
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
-	if (!res)
-		return (0);
-	counter = 0;
-	while (len-- && *(s + start))
-	{
-		res[counter] = s[start];
-		start++;
-		counter++;
-	}
-	return (res);
+	*lst = 0;
 }

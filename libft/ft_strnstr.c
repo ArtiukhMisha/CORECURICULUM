@@ -13,7 +13,7 @@
 #include <stddef.h>
 #include <stdio.h>
 
-char	*find_str(const char *big,	const char *little, size_t len);
+static char	*find_str(const char *big,	const char *little, size_t len);
 
 char	*ft_strnstr(const char *big,	const char *little, size_t len)
 {
@@ -33,7 +33,7 @@ char	*ft_strnstr(const char *big,	const char *little, size_t len)
 	return (find_str(big, little, len));
 }
 
-char	*find_str(const char *big,	const char *little, size_t len)
+static char	*find_str(const char *big,	const char *little, size_t len)
 {
 	unsigned int	counter_little;
 	char			*mem;

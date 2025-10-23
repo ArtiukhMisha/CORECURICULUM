@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str);
-int	is_space(char look_for);
+static int	is_space(char look_for);
 
 int	ft_atoi(const char *str)
 {
@@ -40,7 +40,7 @@ int	ft_atoi(const char *str)
 	return (sign * res);
 }
 
-int	is_space(char look_for)
+static int	is_space(char look_for)
 {
 	char	*spaces;
 	int		i;

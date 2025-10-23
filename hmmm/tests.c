@@ -1,42 +1,32 @@
-// #include "../libft/libft.h"
-// #include "../tests/lib_tests/test_lib.h"
+# include <stdio.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <unistd.h>
 
-// void	*ft_memmove(void *dest, const void *src, size_t n)
-// {
-//     int	counter;
-
-// 	counter = 0;
-//     while ( n && *(char *)(src + counter+1))
-//     {
-//         n--;
-//         counter++;
-//     }
-
-// 	while(counter)
-//     {
-//         printf("%c : %c\n",*(char*)(dest + counter),*(char*)(src + counter));
-//         printf("%d\n",counter);
-//         *(int *)(dest + counter) = *(int *)(src + counter);
-//         counter--;
-//     }
-
-// 	return (dest);
-// }
-int main()
+int ft_read(int fd, char *str,int size)
 {
-    // const char *src = "1234567890";
-    // char res[100];
-    // char output[100];
-    // char s1[100] = "1234567890";
-    //     char s2[100] = "";
-    // int i;
-    // i = strlcat(s1,s2);
-    // memcpy(res,src,10);
-    // memcpy(output,src,10);
+	return (read(fd,str,size));
+}
+int main ()
+{
+	int fd;
+	char str[1000];
+	fd = open("test.txt",O_RDONLY);
+	// while (1)
+	// {
+	// 	if(!read(fd,str,1))
+	// 		break;
+	// }
+	ft_read(fd,str,5);
+	printf("\n%s",str);
 
-    // ft_memmove(res+2, res  , 3);
-    // memmove(output+2, output, 3);
-    // printf("%s\n",res);
-    printf("%d\n",10**10);
-    return 0;;
+	read(fd,str,5);
+	printf("\n%s",str);
+
+	// read(fd-5,str,5);
+	// printf("\n%s",str);
+
+	// read(fd-5,str,5);
+	// printf("\n%s",str);
+	return (0);
 }
