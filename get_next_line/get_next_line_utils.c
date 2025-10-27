@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
 static size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-static size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 size_t	ft_strlen(const char *str)
 {
 	size_t	counter;
+
 	if (!str)
 		return (0);
 	counter = 0;
@@ -54,30 +55,6 @@ char	*ft_strchr(const char *s, int c)
 	return (0);
 }
 
-char	*ft_strdup(const char *src)
-{
-	char	*dest;
-	int		len;
-
-	len = 0;
-	while (src[len])
-	{
-		len++;
-	}
-	dest = malloc(len + 1);
-	if (!dest)
-	{
-		return (0);
-	}
-	len = 0;
-	while (src[len])
-	{
-		dest[len] = src[len];
-		len++;
-	}
-	return (dest);
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char			*res;
@@ -90,9 +67,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (s1)
 		ft_strlcpy(res, s1, ft_strlen(s1) + 1);
 	if (s2)
-		ft_strlcat(res, s2, ft_strlen(s2) + 1);
+		ft_strlcpy(res + ft_strlen(s1), s2, ft_strlen(s2) + 1);
 	return (res);
 }
+
 static size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	len;
@@ -115,30 +93,6 @@ static size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	*(dst + counter) = '\0';
 	return (len);
-}
-static size_t	ft_strlcat(char *dst, const char *src, size_t size)
-{
-	size_t	len;
-	size_t	lensrc;
-
-	len = ft_strlen(dst);
-	lensrc = 0;
-	if (size < len || size == 0)
-	{
-		lensrc = ft_strlen(src);
-		return (lensrc + size);
-	}
-	while (*(src + lensrc) && (size - 1 > len))
-	{
-		*(dst + len) = *(src + lensrc);
-		lensrc++;
-		dst++;
-		size--;
-	}
-	while (*(src + lensrc))
-		lensrc++;
-	*(dst + len) = '\0';
-	return (len + lensrc);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
