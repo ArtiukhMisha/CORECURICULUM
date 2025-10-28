@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
+#  define BUFFER_SIZE 1
 # endif
 
 size_t	ft_strlen(const char *str);

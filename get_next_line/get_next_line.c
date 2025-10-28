@@ -18,15 +18,16 @@ char	*get_next_line(int fd)
 {
 	char		*str;
 	char		*line;
+	// char str[BUFFER_SIZE];
 
 	line = 0;
-	str = malloc(BUFFER_SIZE);
+	str = (char *) malloc(BUFFER_SIZE);
 	if (!str)
 	{
 		return (0);
 	}
 	line = fill_buffer(fd, line, str);
-
+	free(str);
 	return (line);
 }
 
