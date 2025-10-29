@@ -1,6 +1,6 @@
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=1
+FLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=5
 
 SRC =   get_next_line.c\
 		get_next_line_utils.c\

@@ -10,21 +10,52 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
+char	*func(int fd, char *str);
 
-size_t	ft_strlen(const char *str);
-char	*get_next_line(int fd);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *src);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*get_next_line(int fd)
+{
+	char	*str;
+	char	*res;
 
-#endif
+	str = malloc(BUFFER_SIZE + 1);
+	if (!str)
+		return (0);
+	res = func(fd, str);
+	free(str);
+	if (!res)
+		return (0);
+	return (res);
+}
+
+char	*func(int fd, char *str)
+{
+	static char	*mem;
+	char		*temp;
+	char		*temp1;
+	int			bread;
+
+	bread = 1;
+	while (bread && bread != -1 && !ft_strchr(str, '\n'))
+	{
+		bread = read(fd, str, BUFFER_SIZE);
+		str[bread] = '\0';
+		temp = mem;
+		mem = ft_strjoin(temp, str);
+		free (temp);
+		// if (ft_strchr(str, '\n'))
+		// 	break ;
+	}
+	if (!ft_strlen(mem))
+	{
+		free(mem);
+		mem = 0;
+		return (0);
+	}
+	temp = ft_substr(mem, 0, ft_strchr(mem, '\n') - mem + 1);
+	temp1 = mem;
+	mem = ft_strjoin(0, ft_strchr(mem, '\n') + 1);
+	free(temp1);
+	return (temp);
+}

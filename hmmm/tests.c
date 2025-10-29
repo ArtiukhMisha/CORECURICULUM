@@ -3,21 +3,46 @@
 # include <fcntl.h>
 # include <unistd.h>
 
-int ft_read(int fd, char *str,int size)
+size_t	ft_strlen(const char *str)
 {
-	return (read(fd,str,size));
+	size_t	counter;
+
+	if (!str)
+		return (0);
+	counter = 0;
+	while (*(str + counter))
+		counter++;
+	return (counter);
 }
-void func (char *mem)
+
+char	*ft_strchr(const char *s, int c)
 {
-	printf("%s",mem);
-	mem = "321";
+	unsigned char	c1;
+	unsigned int	len;
+	char			*res;
+
+	if (!s)
+		return (0);
+	c1 = (char)(c);
+	res = (char *)(s);
+	len = ft_strlen(res);
+	if (c == 0)
+		return (res + len);
+	while (len)
+	{
+		if (*res == c1)
+			return (res);
+		res++;
+		len--;
+	}
+	return (0);
 }
 int main ()
 {
 	static char *mem = "123";
 
-	func(mem);
-	func(mem);
+	printf("%s",ft_strchr("123",'1'));
+
 	// read(fd-5,str,5);
 	// printf("\n%s",str);
 

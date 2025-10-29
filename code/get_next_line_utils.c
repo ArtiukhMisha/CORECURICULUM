@@ -12,8 +12,6 @@
 
 #include "get_next_line.h"
 
-static size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-
 size_t	ft_strlen(const char *str)
 {
 	size_t	counter;
@@ -65,7 +63,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-static size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	len;
 	size_t	counter;

@@ -40,6 +40,8 @@ int main(int argc, char **argv)
 	print_ln(fd);
 	print_ln(fd);
 	print_ln(fd);
+	print_ln(fd);
+	print_ln(fd);
 	// line = get_next_line(fd);
 	// printf("\n1line - %s",line);
 	// line = get_next_line(fd);
