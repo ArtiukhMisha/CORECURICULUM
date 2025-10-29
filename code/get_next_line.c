@@ -44,8 +44,6 @@ char	*func(int fd, char *str)
 		temp = mem;
 		mem = ft_strjoin(temp, str);
 		free (temp);
-		// if (ft_strchr(str, '\n'))
-		// 	break ;
 	}
 	if (!ft_strlen(mem))
 	{
