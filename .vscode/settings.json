@@ -5,7 +5,8 @@
 		"ctype.h": "c",
 		"stdio.h": "c",
 		"get_next_line.h": "c",
-		"tests.h": "c"
+		"tests.h": "c",
+		"ft_printf.h": "c"
 	},
     "editor.tabSize": 4,
 	"editor.insertSpaces": false,

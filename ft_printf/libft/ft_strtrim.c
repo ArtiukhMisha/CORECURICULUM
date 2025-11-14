@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int char_in(char *str, char c)
+int						char_in(const char *str, char c);
 static const char		*find_start(char const *s1, char const *set);
 static const char		*find_end(char const *s1, char const *set);
 
@@ -50,7 +50,7 @@ static const char	*find_start(char const *s1, char const *set)
 	ptr_l = (char *)(s1);
 	while (1)
 	{
-		if (char_in(*ptr_l, set))
+		if (char_in(set,*ptr_l))
 		{
 			ptr_l++;
 		}
@@ -75,7 +75,7 @@ static const char	*find_end(char const *s1, char const *set)
 	}
 	while (1)
 	{
-		if (char_in(*ptr_r, set))
+		if (char_in(set,*ptr_r))
 		{
 			ptr_r--;
 		}
@@ -85,20 +85,4 @@ static const char	*find_end(char const *s1, char const *set)
 		}
 	}
 	return (ptr_r + 1);
-}
-
-static unsigned int	char_in(char c, char const *s)
-{
-	char	*cpy;
-
-	cpy = (char *)(s);
-	while (*cpy)
-	{
-		if (c == *cpy)
-		{
-			return (1);
-		}
-		cpy++;
-	}
-	return (0);
 }
